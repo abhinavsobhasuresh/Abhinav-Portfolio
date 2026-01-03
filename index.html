@@ -7,6 +7,7 @@
     <!-- Removed Poppins font, using Times New Roman from system fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         /* Additional inline styles for Times New Roman optimization */
         body {
@@ -163,7 +164,7 @@
                 I welcome opportunities for collaboration, challenging projects, and professional connections. Whether you seek embedded systems expertise or wish to discuss innovative hardware solutions, I am available for consultation and partnership.
             </p>
 
-            <form id="contact-form" class="contact-form fade-in-up" data-delay="200">
+            <form id="submit-form" action="" class="contact-form fade-in-up" data-delay="200">
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" placeholder="Enter your complete name" required>
@@ -181,16 +182,13 @@
 
             <div class="social-icons fade-in-up" data-delay="300">
                 <!-- Update these with your actual links -->
-                <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub" title="GitHub Profile">
+                <a href="https://github.com/abhinavsobhasuresh" target="_blank" aria-label="GitHub" title="GitHub Profile">
                     <i class="fab fa-github"></i>
                 </a>
                 <a href="https://linkedin.com/in/abhinav-sobha-suresh" target="_blank" aria-label="LinkedIn" title="LinkedIn Profile">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter" title="Twitter Profile">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="mailto:your.email@example.com" aria-label="Email" title="Send Email">
+                <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCHrjnFLShqmPpTWQhlLcdLdlJtmVBmCmsNNrZnTHxHGcTRxwJwMVLnPVHTXvCWPKbmqBbxV" aria-label="Email" title="Send Email">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
@@ -203,5 +201,24 @@
     </footer>
 
     <script src="script.js"></script>
+     <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbwrDX6dg-2TjT1_vCemJkS4LhR8GTBwKMgW-4soZCxkj2-DJntIvWPxN8Szu9HXUqcgKQ/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 </body>
 </html>
